@@ -1,4 +1,4 @@
-#!/bin/bash -x
+
 
 echo "*** Welcome To Flip Coin Simulation Problem ***"
 
@@ -19,31 +19,36 @@ tailCOunt=0;
 num=42;
 for((index=1; index<=$num; index++))
 do
-	if [[ $((RANDOM%2)) -eq 1 ]]
-	then
-		echo "Head is the winner"
-		((headCount++))
+   if [[ $((RANDOM%2)) -eq 1 ]]
+   then
+      echo "Head is the winner"
+      ((headCount++))
 
-	else
-		echo "Tail is the winner"
-		((tailCount++))
+   else
+      echo "Tail is the winner"
+      ((tailCount++))
 
-	fi
+   fi
 done
 
-echo "Head Won" $headCount "times"
-echo "Tail Won" $tailCount "times"
+#echo "Head Won" $headCount "times"
+#echo "Tail Won" $tailCount "times"
 
 
 if [[ $headCount -gt $tailCount ]]
 then
-	num1=$((headCount-tailCount))
-	echo "Heads Won by $num1"
+   num1=$(($headCount-$tailCount))
+   #echo "Heads Won by $num1"
+    echo "Head Won by : $num Point"
 
 elif [[ $tailCount -gt $headCount ]]
 then
-	num2=$((tailCount-headCount))
-	echo "Tail Won by $num2"
+   num2=$(($tailCount-$headCount))
+#  echo "Tail Won by $num2"
+   echo "Tail Won by : $num Point"
 else
-	echo "Its A Tie"
+   echo "Its A Tie"
 fi
+echo "Head Won" $headCount "times"
+echo "Tail Won" $tailCount "times"
+
