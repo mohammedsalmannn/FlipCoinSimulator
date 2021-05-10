@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash -x
 
 echo "*** Welcome To Flip Coin Simulation Problem ***"
 
@@ -11,6 +11,7 @@ then
 else
         echo "Tail Is Winner"
 fi
+
 echo "To Loop Through Multile times To Flip A Coin To Display No. Of Times Head And Tail Has Won"
 
 headCount=0;
@@ -29,3 +30,20 @@ do
 
 	fi
 done
+
+echo "Head Won" $headCount "times"
+echo "Tail Won" $tailCount "times"
+
+
+if [[ $headCount -gt $tailCount ]]
+then
+	num1=$((headCount-tailCount))
+	echo "Heads Won by $num1"
+
+elif [[ $tailCount -gt $headCount ]]
+then
+	num2=$((tailCount-headCount))
+	echo "Tail Won by $num2"
+else
+	echo "Its A Tie"
+fi
